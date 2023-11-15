@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
 
     private void SetBall(BallColor col, int i)
     {
-        GameObject obj = Instantiate(ballPrefab, ballPosition[i].transform.position,Quaternion.identity)
+        GameObject obj = Instantiate(ballPrefab, ballPosition[i].transform.position, Quaternion.identity);
+
+        Ball b = obj.GetComponent<Ball>();
+        b.SetColorAndPoint(col);
     }
 }
