@@ -15,8 +15,14 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         instance = this;
-        
+        SetBall(BallColor.White,0);
         SetBall(BallColor.Red,1);
+        SetBall(BallColor.Yellow,2);
+        SetBall(BallColor.Green,3);
+        SetBall(BallColor.Brown,4);
+        SetBall(BallColor.Blue,5);
+        SetBall(BallColor.Pink,6);
+        SetBall(BallColor.Black,7);
     }
 
    
