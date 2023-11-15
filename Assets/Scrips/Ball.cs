@@ -17,10 +17,7 @@ public enum BallColor
 public class Ball : MonoBehaviour
 {
     [SerializeField] private int point;
-    public int Point
-    {
-        get { return point; }
-    }
+    public int Point { get { return point; } }
 
     [SerializeField] private BallColor ballColor;
 
@@ -61,7 +58,7 @@ public class Ball : MonoBehaviour
                 break;
             case BallColor.Pink:
                 point = 6;
-                rd.material.color = new Color32();
+                rd.material.color = new Color32(255,0,240,255);
                 break;
             case BallColor.Black:
                 point = 7;
