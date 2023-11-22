@@ -268,6 +268,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4723511926490249903, guid: bfd3a0812ea658e41a38f220c92c9dc2, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 1186684054725619848, guid: bfd3a0812ea658e41a38f220c92c9dc2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.1
@@ -1549,6 +1553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playScore: 0
+  PlayerScore: 0
   ballPrefab: {fileID: 2677790243817805589, guid: db328b610100f6a40bb5b9b36e646088, type: 3}
   ballPosition:
   - {fileID: 1128617106}

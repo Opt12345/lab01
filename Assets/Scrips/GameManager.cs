@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private int playScore;
-    public int PlayerScore { get { return PlayerScore; } set { PlayerScore = value; } }
+    public int PlayerScore;
 
     [SerializeField] private GameObject ballPrefab;
     [SerializeField] private GameObject[] ballPosition;
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     {
         camera.transform.parent = null;
         Rigidbody rb = cueBall.GetComponent<Rigidbody>();
-        rb.AddRelativeForce(Vector3.forward * 50, ForceMode.Impulse);
+        rb.AddRelativeForce(Vector3.forward * 20, ForceMode.Impulse);
         ballLine.SetActive(false);
     }
 
@@ -88,5 +88,5 @@ public class GameManager : MonoBehaviour
         camera.transform.eulerAngles = new Vector3(30f, 0f, 0f);
         ballLine.SetActive(true);
     }
-    
+
 }
