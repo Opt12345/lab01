@@ -1,25 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private int playScore;
-    public int PlayerScore;
-
+    [SerializeField] private int playerScore;
+    public int PlayerScore { get { return playerScore; } set { playerScore = value; } }
+    
     [SerializeField] private GameObject ballPrefab;
     [SerializeField] private GameObject[] ballPosition;
     [SerializeField] private GameObject cueBall;
     [SerializeField] private GameObject ballLine;
     [SerializeField] private GameObject camera;
     [SerializeField] private float xInput;
-
+    [SerializeField] private TMP_Text scoreText;
 
     public static GameManager instance;
     
     void Start()
     {
         instance = this;
+        
+        updateScoreText();
 
         camera = Camera.main.gameObject;
         CameraBehindCueBall();
@@ -60,14 +63,14 @@ public class GameManager : MonoBehaviour
     private void RotateBall()
     {
         xInput = Input.GetAxis("Horizontal");
-        cueBall.transform.Rotate(new Vector3(0f, xInput, 0f));
+        cueBall.transform.Rotate(new Vector3(0f, xInput/20, 0f));
     }
 
     private void ShootBall()
     {
         camera.transform.parent = null;
         Rigidbody rb = cueBall.GetComponent<Rigidbody>();
-        rb.AddRelativeForce(Vector3.forward * 20, ForceMode.Impulse);
+        rb.AddRelativeForce(Vector3.forward * 50, ForceMode.Impulse);
         ballLine.SetActive(false);
     }
 
@@ -87,6 +90,11 @@ public class GameManager : MonoBehaviour
         CameraBehindCueBall();
         camera.transform.eulerAngles = new Vector3(30f, 0f, 0f);
         ballLine.SetActive(true);
+    }
+
+    public void updateScoreText()
+    {
+        scoreText.text = $"Player Score {playerScore}";
     }
 
 }
